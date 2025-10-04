@@ -1,0 +1,109 @@
+# requirements.txt
+# Structured dependencies for the Car Repair MCP Demonstrator project.
+# Grouped by functional category for maintainability and clarity.
+# Versions align with Python 3.12 compatibility, emphasizing minimal, secure, and up-to-date libraries.
+# Comments highlight each library's role, promoting best practices in dependency management.
+# Exclude unused or redundant packages to reduce attack surface and installation overhead.
+
+# ==================== Core Application ====================
+# Essential libraries for the FastAPI-based web server and async operations.
+fastapi>=0.116.1         # High-performance API framework with automatic OpenAPI documentation and validation.
+slowapi>=0.1.9          # Rate limiting middleware to protect endpoints from abuse, configurable per route.
+uvicorn[standard]>=0.35.0  # ASGI server for running FastAPI applications asynchronously.
+
+# ==================== Database and ORM ====================
+# Components for async database interactions using SQLModel.
+sqlmodel>=0.0.24        # ORM combining SQLAlchemy and Pydantic for type-safe database models and queries.
+sqlalchemy[asyncio]>=2.0.42  # Async-enabled SQL toolkit; [asyncio] extra provides coroutine support.
+aiosqlite>=0.21.0       # Asynchronous SQLite driver for lightweight, file-based persistence.
+
+# ==================== AI and Protocol Integration ====================
+# Libraries for LLM integration via MCP and OpenAI APIs.
+mcp>=1.15.0             # Model Context Protocol for standardized LLM-business application communication.
+openai>=1.109.1         # Official OpenAI client for chat completions and tool calling features.
+openai-agents>=0.3.2    # Extension for agent-based workflows in OpenAI integrations.
+backoff>=2.2.1          # Retry library for handling transient errors like OpenAI rate limits with exponential backoff.
+
+# ==================== Data Validation and Configuration ====================
+# Tools for schema validation and environment management.
+pydantic>=2.11.7        # Data validation and settings management using Python type hints (V2 for improved performance).
+pydantic-settings>=2.10.1  # Pydantic extension for loading settings from environment variables or files.
+#pydantic[email]>=
+python-dotenv>=1.0.0    # Loads environment variables from .env files, enhancing configuration portability.
+
+# ==================== Testing ====================
+# Core testing framework and utilities for unit/integration tests.
+pytest>=8.4.1           # Flexible testing framework with rich plugin ecosystem.
+pytest-asyncio>=1.1.0   # Plugin for seamless async test execution.
+pytest-cov>=6.2.1       # Coverage reporting to ensure comprehensive test suites.
+pytest-timeout>=2.4.0   # Timeout enforcement for preventing hanging tests.
+pytest-xdist>=3.8.0     # Parallel test execution for faster runs.
+pytest-mock>=3.14.1     # Mocking utilities for isolated testing.
+pytest-benchmark>=5.1.0 # Performance benchmarking in tests.
+pytest-html>=4.1.1      # HTML report generation for test results.
+pytest-json-report>=1.5.0  # JSON-formatted test reports for CI integration.
+pytest-sugar>=1.0.0     # Improved test output formatting for readability.
+pytest-clarity>=1.0.1   # Enhanced diff output for failed assertions.
+
+# ==================== HTTP Client and Testing ====================
+# Asynchronous HTTP client for API testing and external calls.
+httpx>=0.27.0           # Modern async HTTP client with support for HTTP/2 and testing.
+requests>=2.32.4        # Synchronous HTTP library for simpler requests in non-async contexts.
+requests-mock>=1.12.0   # Mocking for requests library in unit tests.
+responses>=0.25.0       # Mocking responses for requests in integration tests.
+
+# ==================== Async IO ====================
+# Utilities for asynchronous file and message handling.
+aiofiles>=24.1.0        # Async file I/O operations for non-blocking reads/writes.
+asyncio-mqtt>=0.16.0    # MQTT client for async message queuing (if used in extensions).
+nest_asyncio>=1.6.0     # Enables nested use of Python's asyncio event loop
+
+# ==================== Database Migrations ====================
+# Tools for schema management and migrations.
+alembic>=1.16.4         # Database migration tool integrated with SQLAlchemy.
+sqlalchemy-utils>=0.41.2  # Utilities for SQLAlchemy, including custom types and functions.
+
+# ==================== Mock Data Generation ====================
+# Libraries for generating test data and mocking.
+factory-boy>=3.3.0      # Fixture factory for creating test objects.
+freezegun>=1.5.0        # Time mocking for date-sensitive tests.
+faker>=26.0.0           # Fake data generator for realistic test datasets.
+pyfakefs>=5.3.0         # In-memory filesystem mocking for isolated file tests.
+
+# ==================== Code Quality and Linting ====================
+# Static analysis tools for maintaining code standards.
+black>=25.1.0            # Uncompromising code formatter enforcing PEP 8.
+flake8>=7.0.0           # Linter combining PyFlakes, pycodestyle, and McCabe.
+mypy>=1.17.0            # Static type checker for Python code.
+isort>=6.0.1            # Import sorter ensuring consistent ordering.
+bandit>=1.8.6           # Security linter for Python code.
+safety>=3.2.3           # Dependency vulnerability checker.
+
+# ==================== Performance Profiling ====================
+# Tools for analyzing runtime performance and resource usage.
+memory-profiler>=0.61.0 # Memory usage profiling for functions and lines.
+line-profiler>=5.0.0    # Line-by-line performance profiling.
+py-spy>=0.3.14          # Sampling profiler for running Python programs.
+locust>=2.37.14         # Load testing tool for web applications.
+
+# ==================== Development Tools ====================
+# Utilities for development workflow and output enhancement.
+pre-commit>=4.2.0       # Git hook manager for pre-commit checks.
+tox>=4.28.4             # Virtualenv management and testing tool.
+wheel>=0.44.0           # Built-package format for faster installations.
+colorama>=0.4.6         # Cross-platform colored terminal output.
+rich>=13.7.0            # Rich text and beautiful formatting in the terminal.
+click>=8.1.8            # Command-line interface creation kit.
+structlog>=23.2.0       # Structured logging with context support.
+prometheus_client>=0.20.0  # Client library for Prometheus instrumentation.
+
+# ==================== Documentation ====================
+# Tools for generating and validating documentation.
+sphinx>=8.0.0           # Documentation generator for Python projects.
+sphinx-rtd-theme>=2.0.0 # Read the Docs theme for Sphinx.
+doc8>=2.0.0             # Style checker for documentation files.
+
+# ==================== Authentication ====================
+# Libraries for secure authentication mechanisms.
+python-jose>=3.5.0      # JOSE implementation for JWT encoding/decoding.
+passlib[bcrypt]>=1.7.4  # Password hashing with bcrypt support.

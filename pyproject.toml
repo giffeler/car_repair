@@ -1,0 +1,51 @@
+# pyproject.toml
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "."]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+markers = [
+    "integration: marks tests as integration tests (useful for CI filtering)",
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')"
+]
+timeout = 30
+timeout_method = "thread"
+addopts = [
+    "--cov=.",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--tb=short",
+    "--strict-markers"
+]
+
+[tool.coverage.run]
+omit = [
+    "*/tests/*",
+    "*/seed.py",
+    "*/__init__.py",
+    "*/migrations/*",
+    "*/scripts/*"
+]
+
+[tool.mypy]
+python_version = "3.13"  # Align with env (mcp>=1.12.2 supports this)
+strict = true
+ignore_missing_imports = true  # For untyped libs like openai-agents>=0.2.3
+disallow_untyped_defs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+show_error_codes = true
+
+[[tool.mypy.overrides]]
+module = ["openai.*", "openai_agents.*", "mcp.*"]
+ignore_errors = true
+
+[tool.black]
+line-length = 80
+target-version = ['py313']
+
+[tool.bandit.assert_used]
+skips = ["*/*test.py", "*/test*.py"]
