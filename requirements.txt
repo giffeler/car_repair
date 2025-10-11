@@ -19,9 +19,9 @@ aiosqlite>=0.21.0       # Asynchronous SQLite driver for lightweight, file-based
 
 # ==================== AI and Protocol Integration ====================
 # Libraries for LLM integration via MCP and OpenAI APIs.
-mcp>=1.15.0             # Model Context Protocol for standardized LLM-business application communication.
-openai>=1.109.1         # Official OpenAI client for chat completions and tool calling features.
-openai-agents>=0.3.2    # Extension for agent-based workflows in OpenAI integrations.
+mcp>=1.16.0             # Model Context Protocol for standardized LLM-business application communication.
+openai>=1.107.1,<2      # Official OpenAI client for chat completions and tool calling features.
+openai-agents>=0.3.3    # Extension for agent-based workflows in OpenAI integrations.
 backoff>=2.2.1          # Retry library for handling transient errors like OpenAI rate limits with exponential backoff.
 
 # ==================== Data Validation and Configuration ====================

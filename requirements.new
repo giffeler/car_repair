@@ -228,11 +228,11 @@ nest-asyncio==1.6.0
     # via -r requirements.txt
 nodeenv==1.9.1
     # via pre-commit
-openai==1.109.1
+openai==1.107.1,<2
     # via
     #   -r requirements.txt
     #   openai-agents
-openai-agents==0.3.2
+openai-agents==0.3.3
     # via -r requirements.txt
 packaging==25.0
     # via
