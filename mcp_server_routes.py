@@ -904,7 +904,7 @@ async def health_check() -> Dict[str, Any]:
         return {
             "status": "unhealthy",
             "request_id": request_id,
-            "error": str(e),
+            "error": "An internal error occurred during health check.",
             "timestamp": datetime.utcnow().isoformat(),
             "service": "car-repair-mcp-server",
         }
